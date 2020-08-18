@@ -71,7 +71,11 @@ function Emotify($message, $index = 0){
     $matchFinder = /(?<=[\S])[,]|(?<=[\S])[!]|(?<=[\S])[?]/g
     
     $matches = $message.match($matchFinder);
-
+    
+    if($matches == null || $index >= $matches.length){
+        return $message;
+    }
+    
     if($index >= $matches.length){
         return $message;
     }
